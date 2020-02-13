@@ -7,10 +7,17 @@ $(document).ready(function() {
 
   $(document).on("click", ".container__invio button", function() {
     var datoInput = $(".container__invio input").val();
-    console.log(datoInput);
     aggiungiAttivita(LinkApi, datoInput)
 
   })
+
+  $(document).on("keydown", ".container__invio input", function() {
+    if (event.which == 13 || event.keyCode == 13) {
+      var datoInput = $(".container__invio input").val();
+      aggiungiAttivita(LinkApi, datoInput)
+    }
+  })
+
 
   $(document).on("click", ".delete", function() {
     var questoElimina = $(this);
@@ -23,26 +30,16 @@ $(document).ready(function() {
   $(document).on("click", ".edit", function() {
     var questoEdit = $(this);
     var attivitaModifica = questoEdit.parent().parent().find("input").prop('disabled', false);
-    // questoEdit.parent().parent().addClass("active");
     questoEdit.parent().parent().find(".fa-pen-square").removeClass("display_none");
-    // if (questoEdit.parent().parent().hasClass("active") == true) {
-
     $(".fa-pen-square").click(function() {
-      // $(document).on("click", ".fa-pen-square", function() {
       $(this).parent().parent().find("input").prop('disabled', true);
       $(this).parent().parent().removeClass("active");
       var datoNuovoInput = $(this).parent().find("input").val();
       var idAttivita = $(this).parent().parent().attr("data-id");
       $(".container__attivita").html("");
       modifica(LinkApi, idAttivita, datoNuovoInput)
-
     })
-    // }
-
   })
-
-
-
 });
 
 ///////////// FUNZIONI DELLO SCRIPT //////////////////////////
