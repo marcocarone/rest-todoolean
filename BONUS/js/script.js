@@ -53,13 +53,15 @@ $(document).ready(function() {
   })
 
   $(document).on("click", ".edit", function() {
-    var questoEdit = $(this);
-    var attivitaModifica = questoEdit.parent().parent().find("input").prop('disabled', false);
-    questoEdit.parent().parent().find(".fa-pen-square").removeClass("display_none");
+
+    var attivitaModifica = $(this).parent().parent().find("input").prop('disabled', false);
+    $(this).parent().find(".fa-pen-square").removeClass("display_none");
+    $(this).addClass("display_none");
     $(".fa-pen-square").click(function() {
       $(this).parent().parent().find("input").prop('disabled', true);
-      $(this).parent().parent().removeClass("active");
-      var datoNuovoInput = $(this).parent().find("input").val();
+      // $(this).parent().parent().removeClass("active");
+      $(this).find(".edit").removeClass("display_none");
+      var datoNuovoInput = $(this).parent().parent().find("input").val();
       var idAttivita = $(this).parent().parent().attr("data-id");
       $(".container__attivita").html("");
       modifica(LinkApi, idAttivita, datoNuovoInput)

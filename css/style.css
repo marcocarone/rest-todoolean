@@ -88,7 +88,7 @@ body {
 
 .container__destro {
   display: flex;
-  flex-basis: 20%;
+  flex-basis: 70px;
   justify-content: flex-end;
   align-items: center;
 }
@@ -97,9 +97,7 @@ body {
   cursor: pointer;
 }
 
-.container__destro i:hover {
-  color: #c21a1a;
-}
+
 
 .container__sinistro input:disabled {
   font-size: 14px;
@@ -116,7 +114,7 @@ body {
 .container__sinistro {
   display: flex;
   justify-content: flex-start;
-  flex-basis: 80%;
+  flex-basis: calc(100% - 70px);
   align-items: center;
 }
 
@@ -135,11 +133,19 @@ body {
   line-height: 30px;
   vertical-align: middle;
   color: #17ad89;
-  margin-left: 15px;
+  margin: 0 10px;
   font-size: 20px;
   cursor: pointer;
+}
+.fa-pen-square:hover,
+.fa-edit:hover {
+  color: #17ad89;
 }
 
 .fa-edit  {
   padding-right: 10px;
+}
+
+.delete:hover {
+  color: red;
 }
