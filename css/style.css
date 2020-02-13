@@ -101,7 +101,7 @@ body {
   color: #c21a1a;
 }
 
-input:disabled {
+.container__sinistro input:disabled {
   font-size: 14px;
   font-weight: 700;
   color: #17ad89;
@@ -124,6 +124,11 @@ input:disabled {
   width: 100%;
   line-height: 30px;
   vertical-align: middle;
+  border-radius: 5px;
+  padding-left: 20px;
+  color: rgb(221, 221, 221);
+  border: 1px solid rgb(221, 221, 221);
+
 }
 
 .fa-pen-square {
@@ -133,4 +138,8 @@ input:disabled {
   margin-left: 15px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.fa-edit  {
+  padding-right: 10px;
 }
