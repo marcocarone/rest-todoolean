@@ -7,14 +7,39 @@ $(document).ready(function() {
 
   $(document).on("click", ".container__invio button", function() {
     var datoInput = $(".container__invio input").val();
-    aggiungiAttivita(LinkApi, datoInput)
+    if (datoInput.length == 0) {
+      Toastify({
+        text: "Il campo non può essere vuoto",
+        duration: 2000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        gravity: "bottom",
+        position: 'right',
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+      }).showToast();
+    } else {
+      aggiungiAttivita(LinkApi, datoInput)
+    }
+
 
   })
 
   $(document).on("keydown", ".container__invio input", function() {
     if (event.which == 13 || event.keyCode == 13) {
       var datoInput = $(".container__invio input").val();
-      aggiungiAttivita(LinkApi, datoInput)
+      if (datoInput.length == 0) {
+        Toastify({
+          text: "Il campo non può essere vuoto",
+          duration: 2000,
+          destination: "https://github.com/apvarun/toastify-js",
+          newWindow: true,
+          gravity: "bottom",
+          position: 'right',
+          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        }).showToast();
+      } else {
+        aggiungiAttivita(LinkApi, datoInput)
+      }
     }
   })
 
