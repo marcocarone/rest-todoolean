@@ -9,6 +9,7 @@ $(document).on("click", ".container__invio button", function(){
   var datoInput = $(".container__invio input").val();
   console.log(datoInput);
   aggiungiAttivita(LinkApi, datoInput)
+
 })
 
 $(document).on("click", ".delete", function(){
@@ -18,6 +19,27 @@ $(document).on("click", ".delete", function(){
   eliminaAttivita(LinkApi, idAttivita)
 
 })
+
+
+
+$(document).on("click", ".edit", function(){
+  var questoEdit = $(this);
+  var attivitaModifica = questoEdit.parent().parent().find("input").prop('disabled', false);
+  questoEdit.parent().parent().addClass("active");
+  if (questoEdit.parent().parent().hasClass("active") == true) {
+    $(document).on("click", ".fa-pen-square", function(){
+      $(this).parent().parent().find("input").prop('disabled', true);
+      $(this).parent().parent().removeClass("active");
+      var datoNuovoInput = $(this).parent().find("input").val();
+      var idAttivita = $(this).parent().parent().attr("data-id");
+
+      modifica(LinkApi, idAttivita, datoNuovoInput)
+    })
+  }
+
+})
+
+
 
 });
 
@@ -55,6 +77,8 @@ function aggiungiAttivita(link, datoInput) {
     success :function (data) {
       $(".container__attivita").empty();
       stampaTutti(link)
+      $(".container__invio input").val("");
+
     },
     error : function (errore) {
       alerr("errore" + errore)
@@ -74,6 +98,24 @@ function eliminaAttivita(link, id) {
     },
     error : function (errore) {
       alerr("errore" + errore)
+    }
+  })
+}
+
+
+function modifica(link, id, nuovoTesto) {
+  $.ajax({
+    url : link + id,
+    method : "PATCH",
+    data : {
+      text: nuovoTesto,
+    },
+    success :function (data) {
+      $(".container__attivita").empty();
+      stampaTutti(link)
+    },
+    error : function (errore) {
+      alert("errore"+errore)
     }
   })
 }
