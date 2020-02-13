@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.2/handlebars.js" integrity="sha256-N5vR06TQIR+YD8oS0yndB1pu/EITeijW52dwezEq7/g=" crossorigin="anonymous"></script>
+  <title>Cose da fare JS - REST API 13.02.2020</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="container__invio">
+      <input type="text" placeholder="Inserisci una cosa da fare...">
+      <button>
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container__attivita"></div>
+  </main>
+
+
+  <!-- //////////////////////////////////////////////////// -->
+
+  <script id="attivita" type="text/x-handlebars-template">
+
+    <div class="attivita" data-id="{{id}}">
+      <div class="container__sinistro">
+        <input  type="text" value="{{testo}}" disabled="disabled">
+        <i class="fas fa-pen-square display_none"></i>
+
+
+      </div>
+      <div class="container__destro">
+
+        <i class="far fa-edit edit"></i>
+        <i class="far fa-trash-alt delete"></i>
+      </div>
+    </div>
+
+  </script>
+
+
+  <!-- ///////////////////////////////// -->
+
+  <script src="js/script.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+</body>
+
+</html>
