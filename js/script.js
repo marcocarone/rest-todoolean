@@ -26,6 +26,7 @@ $(document).on("click", ".edit", function(){
   var questoEdit = $(this);
   var attivitaModifica = questoEdit.parent().parent().find("input").prop('disabled', false);
   questoEdit.parent().parent().addClass("active");
+  questoEdit.parent().parent().find(".fa-pen-square").removeClass("display_none");
   if (questoEdit.parent().parent().hasClass("active") == true) {
     $(document).on("click", ".fa-pen-square", function(){
       $(this).parent().parent().find("input").prop('disabled', true);

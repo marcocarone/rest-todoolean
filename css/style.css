@@ -86,11 +86,6 @@ body {
   margin: 15px 0;
 }
 
-.container__sinistro h3 {
-  font-size: 14px;
-  font-weight: 700;
-  color: #17ad89;
-}
 
 .container__destro i {
   cursor: pointer;
@@ -98,4 +93,16 @@ body {
 
 .container__destro i:hover {
   color: #c21a1a;
+}
+
+input:disabled {
+  font-size: 14px;
+  font-weight: 700;
+  color: #17ad89;
+  background-color: #ffffff;
+  border: none;
+}
+
+.display_none{
+  display: none;
 }
